@@ -1,0 +1,22 @@
+﻿<Page x:Class="Prüfstand_Bedienanwendung_V3.Views.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <Grid>
+        <UniformGrid Rows="3" Columns="3" Margin="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- Live Anzeige -->
+            <Button Content="Live Anzeige"
+                    Click="LiveAnzeige_Click"
+                    Margin="10"
+                    Padding="20"
+                    FontSize="22"
+                    Foreground="White"
+                    Background="#3E7BFA"
+                    BorderThickness="0"
+                    Cursor="Hand"/>
+
+            <!-- weitere Buttons kommen später hierher -->
+        </UniformGrid>
+    </Grid>
+</Page>

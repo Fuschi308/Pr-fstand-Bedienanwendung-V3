@@ -1,0 +1,76 @@
+﻿<Window x:Class="Prüfstand_Bedienanwendung_V3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+        Title="Prüfstand Bedienanwendung V3"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="#1E1E1E"
+        KeyDown="Window_KeyDown">
+
+    <!-- Windows-Rahmen komplett deaktivieren -->
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome CaptionHeight="0"
+                            ResizeBorderThickness="0"
+                            GlassFrameThickness="0"
+                            UseAeroCaptionButtons="False"/>
+    </shell:WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Titelleiste -->
+            <RowDefinition Height="*"/>
+            <!-- Inhalt -->
+        </Grid.RowDefinitions>
+
+        <!-- Titelleiste: Inhalt rechtsbündig, 8px Abstand zum Rand -->
+        <Grid x:Name="TitleBar"
+              Grid.Row="0"
+              Height="32"
+              Background="#3C3C3C"
+              MouseDown="TitleBar_MouseDown">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Margin="0,0,8,0">
+                <!-- Minimieren -->
+                <Button Width="45" Height="32" Background="Transparent" BorderThickness="0"
+                        Click="Minimize_Click">
+                    <Grid Width="14" Height="14">
+                        <Rectangle Height="2" VerticalAlignment="Center" Fill="White"/>
+                    </Grid>
+                </Button>
+
+                <!-- Maximieren -->
+                <Button Width="45" Height="32" Background="Transparent" BorderThickness="0"
+                        Click="Maximize_Click">
+                    <Grid Width="14" Height="14">
+                        <Rectangle Stroke="White" StrokeThickness="2" Margin="1"/>
+                    </Grid>
+                </Button>
+
+                <!-- Schließen -->
+                <Button Width="45" Height="32" Background="Transparent" BorderThickness="0"
+                        Click="Close_Click">
+                    <Grid Width="14" Height="14">
+                        <Path Stroke="White" StrokeThickness="2">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="1,1"  EndPoint="13,13"/>
+                                    <LineGeometry StartPoint="13,1" EndPoint="1,13"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Hauptinhalt -->
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
+               NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

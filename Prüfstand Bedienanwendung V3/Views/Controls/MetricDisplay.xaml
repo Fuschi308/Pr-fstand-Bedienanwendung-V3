@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Prüfstand_Bedienanwendung_V3.Views.Controls.MetricDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="Root"
+             SnapsToDevicePixels="True"
+             UseLayoutRounding="True"
+             Width="Auto" Height="Auto">
+    <Border Background="#2A2A2A" CornerRadius="16" Padding="18" Margin="4"
+            MouseLeftButtonDown="OnTileMouseLeftButtonDown" Cursor="Hand"
+            ToolTip="Doppelklick: Min/Max anpassen">
+        <Grid TextElement.FontFamily="Segoe UI"
+              TextOptions.TextFormattingMode="Ideal"
+              TextOptions.TextRenderingMode="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Titel -->
+            <TextBlock Grid.Row="0"
+                       Text="{Binding Title, ElementName=Root}"
+                       Foreground="#A0A0A0" FontSize="24" FontWeight="SemiBold"/>
+
+            <!-- Wert -->
+            <Viewbox Grid.Row="1" Stretch="Uniform" StretchDirection="DownOnly" Margin="0,8,0,8">
+                <TextBlock Foreground="White" FontWeight="Bold" TextAlignment="Center"
+                           FontSize="{Binding ValueFontSize, ElementName=Root}"
+                           Text="{Binding Value, ElementName=Root, StringFormat={}{0:0}}"/>
+            </Viewbox>
+
+            <!-- Einheit -->
+            <TextBlock Grid.Row="2" Text="{Binding Unit, ElementName=Root}"
+                       Foreground="#C0C0C0" FontSize="24" FontWeight="SemiBold"
+                       HorizontalAlignment="Center"/>
+
+            <!-- Balken -->
+            <Grid Grid.Row="3" x:Name="BarHost"
+                  Height="{Binding BarHeight, ElementName=Root}"
+                  Margin="0,12,0,0" Visibility="Collapsed">
+                <Border x:Name="PART_Track" Background="#2F2F2F" CornerRadius="5"/>
+                <Border x:Name="PART_Indicator" CornerRadius="5"
+                        HorizontalAlignment="Left" Width="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0.00" Color="#4CAF50"/>
+                            <!-- Grün -->
+                            <GradientStop Offset="0.33" Color="#CDDC39"/>
+                            <!-- Gelbgrün -->
+                            <GradientStop Offset="0.66" Color="#FF9800"/>
+                            <!-- Orange -->
+                            <GradientStop Offset="1.00" Color="#F44336"/>
+                            <!-- Rot -->
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+            </Grid>
+
+            <!-- Skala (nur unten) -->
+            <Grid Grid.Row="4" x:Name="ScaleHost"
+                  Height="{Binding ScaleHeight, ElementName=Root}"
+                  Margin="0,8,0,0" Visibility="Collapsed">
+                <Canvas x:Name="ScaleCanvas"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        SnapsToDevicePixels="True"
+                        IsHitTestVisible="False"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prüfstand Bedienanwendung V3", "Prüfstand Bedienanwendung V3\Prüfstand Bedienanwendung V3.csproj", "{AFA43FD6-7F6D-4BE3-8DC5-ACC421369FCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFA43FD6-7F6D-4BE3-8DC5-ACC421369FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA43FD6-7F6D-4BE3-8DC5-ACC421369FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA43FD6-7F6D-4BE3-8DC5-ACC421369FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA43FD6-7F6D-4BE3-8DC5-ACC421369FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDCA7784-A963-4BEA-A944-79FB626E4580}
+	EndGlobalSection
+EndGlobal
